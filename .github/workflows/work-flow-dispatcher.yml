@@ -1,0 +1,23 @@
+name: workflow-dispatcher
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run the workflow in'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+
+jobs:
+  run-manual-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo selected environment
+        run: echo "Selected environment: ${{ inputs.environment }}"
+ 
+          
