@@ -6,7 +6,7 @@ on:
       environment:
         description: 'Environment to run the workflow in'
         required: true
-        default: 'development'
+        # default: 'development'
         type: choice
         options:
           - development
