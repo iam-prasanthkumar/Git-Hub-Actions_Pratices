@@ -1,0 +1,36 @@
+name: Shell_pwsh_cmd_command_&_Working_directory
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name of the Environment'
+        required: true
+        default: 'Development'
+        type: choice
+        options:
+            - Development
+            - Staging
+            - Production
+    jobs:
+      shell-command:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v4
+
+          - name: Run shell command
+            run: echo "Running shell command in ${{ github.event.inputs.name }} environment."
+
+          - name: check-repository
+            uses: actions/checkout@v4
+          
+          - name: list-files
+            run: ls -la ${GITHUB_WORKSPACE}
+
+#if you want to run a PowerShell command, you can use the following step:
+          # - name: Run PowerShell command
+          #   shell: pwsh
+          #   run: |
+          #     Write-Host "Running PowerShell command in ${{ github.event.inputs.name }} environment."
+
