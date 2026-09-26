@@ -12,7 +12,7 @@ on:
             - Development
             - Staging
             - Production
-    jobs:
+jobs:
       shell-command:
         runs-on: ubuntu-latest
         steps:
@@ -34,3 +34,4 @@ on:
           #   run: |
           #     Write-Host "Running PowerShell command in ${{ github.event.inputs.name }} environment."
 
+   
